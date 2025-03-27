@@ -1,12 +1,12 @@
 # 🤖 AI Tools
 
-Working on some scripts to help new users test AI integrations. This is very much a work in progress, so please check back for updates and feel free to leave comments, feedback, or requests! ✨
+Working on some scripts to help new users get started with AI. This is very much a work in progress, so please check back for updates and feel free to leave comments, feedback, or requests! ✨
 
 ## 🚀 Quick Start
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/ai-tools.git
+git clone https://github.com/lauren-cordova/ai-tools.git
 cd ai-tools
 ```
 
@@ -28,7 +28,7 @@ Run this Python script to check that your API access is set up correctly.
 
 **🚀 Usage:**
 ```bash
-python3 openai_api_test.py
+streamlit run openai_api_test.py
 ```
 
 ### ✍️ 2. Blog Agent

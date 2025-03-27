@@ -6,9 +6,9 @@
 # Enjoy! - LC
 
 import streamlit as st
-import openai
 import sys
 import os
+import openai
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'secrets')) #REPLACE WITH YOUR PATH
 import my_secrets #REPLACE WITH YOUR SECRETS FILE NAME
@@ -20,7 +20,8 @@ st.title("OpenAI API Integration Test")
 
 # Initialize OpenAI client
 api_key = my_secrets.openai_by #REPLACE WITH YOUR API KEY NAME IN SECRETS FILE
-client = openai.OpenAI(api_key=api_key)
+from openai import OpenAI
+client = OpenAI(api_key=api_key)  # Initialize client after api_key is defined
 
 # Add a button to test the API
 if st.button("Test OpenAI API"):
@@ -32,18 +33,22 @@ if st.button("Test OpenAI API"):
                 messages=[{"role": "user", "content": "Say 'Hello'"}],
                 max_tokens=1
             )
-            
+
             # Display success message and response
             st.success("API connection successful!")
             st.write("Response:", response.choices[0].message.content)
-            
+
             # Display token usage
             st.info(f"Tokens used: {response.usage.total_tokens}")
-            
+
         except Exception as e:
             st.error(f"Error testing API: {str(e)}")
 
 # Add some helpful information
+
+st.info("Streamlit version: " + st.__version__)
+st.info("OpenAI version: " + openai.__version__)
+
 with st.expander("About"):
     st.write("""
     This is a simple test page to validate OpenAI API integration.
